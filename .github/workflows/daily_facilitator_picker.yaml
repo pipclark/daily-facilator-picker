@@ -5,7 +5,7 @@ on:
   # https://crontab.guru/#0_10_*_*_MON-FRI
   schedule:
     - cron: "0 10 * * MON-FRI"
-    workflow_dispatch: # allows manual rerunning in github actions
+  workflow_dispatch: # allows manual rerunning in github actions
 
 jobs:
   notify: # a test notification
