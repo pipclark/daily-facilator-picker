@@ -1,0 +1,30 @@
+name: Daily Facilitator Picker
+
+on:
+  # At 10:00 am on weekdays
+  # https://crontab.guru/#0_10_*_*_MON-FRI
+  schedule:
+    #- cron: "0 10 * * MON-FRI"
+    - cron: "0 10-18 * * MON-FRI" # every hour
+
+notify: # a test notification
+  runs-on: ubuntu-latest
+  steps:
+    - name: Notify BKK teams channel
+      uses: jdcargile/ms-teams-notification@v1.3
+      with:
+        github-token: ${{ github.token }} # this will use the runner's token.
+        ms-teams-webhook-uri: ${{ secrets.BKK_PIP_TEST_CHANNEL }}
+        notification-summary: Test notification worked successfully
+        notification-color: "25e712"
+        timezone: Europe/Berlin
+  # type of job
+  #ci: # ? no idea
+  #  name: Assign Berlin Kool Kids Daily Facilitator
+
+  # admin-frontend has the most advanced git hub actions pipeline :)
+  # watch/read some github actions info !
+
+  #https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
+
+  # https://developer.personio.de/docs/getting-started-with-the-personio-api also gonna be useful
