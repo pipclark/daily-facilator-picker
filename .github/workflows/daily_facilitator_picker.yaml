@@ -5,7 +5,7 @@ on:
   # https://crontab.guru/#0_10_*_*_MON-FRI
   schedule:
     #- cron: "0 10 * * MON-FRI"
-    - cron: "0 10-18 * * MON-FRI" # every hour
+    - cron: "0/5 10-18 * * MON-FRI" # every 5 minutes hour
 
 jobs:
   notify: # a test notification
