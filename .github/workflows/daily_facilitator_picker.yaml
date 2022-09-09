@@ -4,7 +4,7 @@ on:
   # At 10:00 am on weekdays
   # https://crontab.guru/#0_10_*_*_MON-FRI
   schedule:
-    - cron: "0 10 * * MON-FRI"
+    - cron: "0 10-18 * * MON-FRI"
   workflow_dispatch: # allows manual rerunning in github actions
 
 jobs:
