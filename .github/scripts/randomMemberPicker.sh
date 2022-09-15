@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # read list of current team members
 filename="`dirname $0`"/'teamMembers.txt'
 n=1
