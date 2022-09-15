@@ -1,14 +1,14 @@
 name: Daily Facilitator Picker
 
 on:
-  # At 10:00 am on weekdays. UTC => 8:00
+  # At ~9:00 am on weekdays. UTC => 7:00
   # https://crontab.guru/#0_10_*_*_MON-FRI
   schedule:
-    - cron: "0 8 * * MON-FRI"
+    - cron: "0 7 * * MON-FRI"
   workflow_dispatch: # allows manual rerunning in github actions
 
 jobs:
-  notify: # facilitator of the daily
+  notify: # facilitator of the daily tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 # allows accessing files from the repo
@@ -16,7 +16,7 @@ jobs:
         run: ./.github/scripts/randomMemberPicker.sh
         id: facilitator
     
-      - name: Notify BKK teams channel
+      - name: Notify my test BKK teams channel
         uses: jdcargile/ms-teams-notification@v1.3
         with:
           github-token: ${{ github.token }} # this will use the runner's token.
@@ -24,9 +24,15 @@ jobs:
           notification-summary: ${{ steps.facilitator.outputs.FACILITATOR }} is the daily facilitator today.
           notification-color: "25e712"
           timezone: Europe/Berlin
-    # type of job
-    #ci: # ? no idea
-    #  name: Assign Berlin Kool Kids Daily Facilitator
+ 
+      - name: Notify BKK teams channel
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }} # this will use the runner's token.
+          ms-teams-webhook-uri: ${{ secrets.BKK_TEAMS_CHANNEL }}
+          notification-summary: ${{ steps.facilitator.outputs.FACILITATOR }} is the daily facilitator today.
+          notification-color: "672d9e"
+          timezone: Europe/Berlin  
 
     # admin-frontend has the most advanced git hub actions pipeline :)
     # watch/read some github actions info !
