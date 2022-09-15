@@ -11,6 +11,7 @@ jobs:
   notify: # facilitator of the daily
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2 # allows accessing files from the repo
       - name: Pick Today's Facilitator
         run: ./.github/scripts/randomMemberPicker.sh
         id: facilitator
