@@ -1,0 +1,5 @@
+# putting variables into shell script from github actions
+- name: Run migrations
+  run: sh ./github/scripts/migrate.sh
+  env:
+    ENVIRONMENT_VARIABLE_NAME: ${{ secrets.ENVIRONMENT_VARIABLE_NAME }}

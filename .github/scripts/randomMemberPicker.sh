@@ -12,4 +12,4 @@ done < $filename
 # shuffle array
 MEMBERS=( $(shuf -e "${MEMBERS[@]}") )
 
-echo "${MEMBERS[0]}"
+echo "::set-output name=FACILITATOR::${MEMBERS[0]}"
