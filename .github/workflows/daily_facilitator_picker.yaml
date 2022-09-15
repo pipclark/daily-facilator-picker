@@ -8,15 +8,19 @@ on:
   workflow_dispatch: # allows manual rerunning in github actions
 
 jobs:
-  notify: # a test notification
+  notify: # facilitator of the daily
     runs-on: ubuntu-latest
     steps:
+      - name: Pick Today's Facilitator
+        run: ./.github/scripts/randomMemberPicker.sh
+        id: facilitator
+    
       - name: Notify BKK teams channel
         uses: jdcargile/ms-teams-notification@v1.3
         with:
           github-token: ${{ github.token }} # this will use the runner's token.
           ms-teams-webhook-uri: ${{ secrets.BKK_PIP_TEST_CHANNEL }}
-          notification-summary: Test notification worked successfully
+          notification-summary: ${{ steps.version.outputs.TAG_NAME }} is the daily facilitator today.
           notification-color: "25e712"
           timezone: Europe/Berlin
     # type of job
