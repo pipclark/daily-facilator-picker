@@ -1,7 +1,7 @@
 name: Daily Facilitator Picker
 
 on:
-  # At 10:00 am on weekdays
+  # At 10:00 am on weekdays. UTC => 8:00
   # https://crontab.guru/#0_10_*_*_MON-FRI
   schedule:
     - cron: "0 8 * * MON-FRI"
