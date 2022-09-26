@@ -24,15 +24,6 @@ jobs:
           notification-summary: ${{ steps.facilitator.outputs.FACILITATOR }} is the daily facilitator today.
           notification-color: "25e712"
           timezone: Europe/Berlin
- 
-      - name: Notify BKK teams channel
-        uses: jdcargile/ms-teams-notification@v1.3
-        with:
-          github-token: ${{ github.token }} # this will use the runner's token.
-          ms-teams-webhook-uri: ${{ secrets.BKK_TEAMS_CHANNEL }}
-          notification-summary: ${{ steps.facilitator.outputs.FACILITATOR }} is the daily facilitator today.
-          notification-color: "672d9e"
-          timezone: Europe/Berlin  
 
     # admin-frontend has the most advanced git hub actions pipeline :)
     # watch/read some github actions info !
