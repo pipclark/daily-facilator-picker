@@ -19,7 +19,7 @@ jobs:
       - name: Notify my test BKK teams channel
         uses: jdcargile/ms-teams-notification@v1.3
         with:
-          github-token: ${{ github.token }} # this will use the runner's token.
+          # github-token: ${{ github.token }} # this will use the runner's token.
           ms-teams-webhook-uri: ${{ secrets.BKK_PIP_TEST_CHANNEL }}
           notification-summary: ${{ steps.facilitator.outputs.FACILITATOR }} is the daily facilitator today.
           notification-color: "25e712"
