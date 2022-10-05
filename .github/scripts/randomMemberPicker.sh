@@ -1,7 +1,7 @@
 #!/bin/bash
 # read list of current team members
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-membersfile="${DIR}/data/berlinTeamMembers.txt"
+membersfile="${DIR}/teamMembers.txt"
 n=1
 while read -r line; do
 # reading each line
