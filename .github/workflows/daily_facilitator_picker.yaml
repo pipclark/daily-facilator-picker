@@ -22,7 +22,7 @@ jobs:
           webhook_uri: ${{ secrets.BKK_PIP_TEST_CHANNEL }}
           summary: alert the team who is the facilitator today
           title: ${{ steps.facilitator.outputs.FACILITATOR }} is the daily facilitator today.
-          text: ${{ [Prepare with our script](https://climatepartner.atlassian.net/wiki/spaces/TB/pages/1042677793/Dailies) }}
+          text: "{{ '[Prepare with our script](https://climatepartner.atlassian.net/wiki/spaces/TB/pages/1042677793/Dailies)' }}"
           
           
 
