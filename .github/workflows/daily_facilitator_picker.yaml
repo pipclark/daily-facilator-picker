@@ -20,8 +20,8 @@ jobs:
         uses: aliencube/microsoft-teams-actions@v0.8.0
         with:
           webhook_uri: ${{ secrets.BKK_PIP_TEST_CHANNEL }}
-          title: ${{ steps.facilitator.outputs.FACILITATOR }} is the daily facilitator today.
-          summary: bla bla ? 
+          summary: ${{ steps.facilitator.outputs.FACILITATOR }} is the daily facilitator today.
+          
 
     # admin-frontend has the most advanced git hub actions pipeline :)
     # watch/read some github actions info !
