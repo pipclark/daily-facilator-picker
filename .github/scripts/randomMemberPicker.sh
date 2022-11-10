@@ -36,4 +36,4 @@ then
    i=$(shuf -i 1-${#PRESENT[@]} -n 1)
 fi
 
-echo "::set-output name=FACILITATOR::${PRESENT[$i]}"
+echo "FACILITATOR=${MEMBERS[$i]}" >> $GITHUB_OUTPUT
