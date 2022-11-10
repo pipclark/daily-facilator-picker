@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 import csv
 import sys
+import os
 from datetime import datetime
 
-def main(): 
+def main(calander_path): 
     # get current year/month and day
     month = datetime.today().strftime('%Y-%m')
     day = datetime.today().strftime('%d')
-    # 
 
     check_who_here = False
     absent = []
-    with open('AIMCalander.csv', mode='r') as file:
+    with open(calander_path, mode='r') as file:
         csv_reader = csv.reader(file)
         for row in csv_reader:
             if row[0] == "":
@@ -25,4 +25,4 @@ def main():
     sys.exit(absent)
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1])

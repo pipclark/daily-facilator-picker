@@ -9,8 +9,9 @@ MEMBERS[$n]=$line
 n=$((n+1))
 done < $filename
 
-# check absences and pipe returned python array into bash array
-absent=($(python3 ${DIR}/checkAbsences.py 2>&1 > /dev/null | tr -d '[],'))
+calander_path="${DIR}/AIMCalander.csv"
+# check absences, passing in path to csv file, and pipe returned python array into bash array
+absent=($(python3 ${DIR}/checkAbsences.py $calander_path 2>&1 | tr -d '[],'))
 
 # remove single quotes from absent values
 absent=(${absent[@]//\'/})
