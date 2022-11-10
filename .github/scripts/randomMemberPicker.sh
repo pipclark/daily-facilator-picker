@@ -37,3 +37,4 @@ then
 fi
 
 echo "FACILITATOR=${MEMBERS[$i]}" >> $GITHUB_OUTPUT
+echo "ABSENTEES=${absent[@]}" >> $GITHUB_OUTPUT
